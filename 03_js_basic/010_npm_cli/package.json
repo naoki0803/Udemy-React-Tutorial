@@ -1,0 +1,11 @@
+{
+  "name": "npm-cli-sample",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "typescript": ">=3.2.1 <4.0.0 || >=4.0.0 <5.0.0"
+  },
+  "scripts": {
+    "start": ""
+  }
+}

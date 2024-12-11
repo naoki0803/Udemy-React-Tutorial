@@ -1,0 +1,43 @@
+{
+  "todo": [
+    {
+      "id": "c5868bfe-fa1d-4891-acd3-bc43959a9bb7",
+      "content": "洗濯",
+      "editing": false
+    },
+    {
+      "id": "5d87d115-7ebb-4d17-adce-4ffe4b39f8c5",
+      "content": "掃除",
+      "editing": false
+    },
+    {
+      "id": "f2c38014-e2df-40ae-ac93-36303b8771ce",
+      "content": "買い物",
+      "editing": false,
+      "completed": false
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "hoge太郎",
+      "age": 20,
+      "hobbies": ["サッカー", "野球"],
+      "premiumAccount": true
+    },
+    {
+      "id": 2,
+      "username": "fuga太郎",
+      "age": 17,
+      "hobbies": ["カメラ"],
+      "premiumAccount": false
+    },
+    {
+      "id": 3,
+      "username": "piyo三郎",
+      "age": 50,
+      "hobbies": ["筋トレ", "水泳"],
+      "premiumAccount": true
+    }
+  ]
+}
