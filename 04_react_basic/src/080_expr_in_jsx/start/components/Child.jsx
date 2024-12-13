@@ -1,4 +1,4 @@
-import "./Child.css";
+import './Child.css';
 
 const Child = () => {
   return (
