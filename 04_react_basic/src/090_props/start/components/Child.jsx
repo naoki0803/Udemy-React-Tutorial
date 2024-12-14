@@ -3,11 +3,14 @@
 文：変数宣言、for文、if文、switch文やセミコロンで区切るもの。
 */
 
-import "./Child.css";
+import './Child.css';
 
-const Child = () => {
+{
+  /* default値を'greenとして設定' */
+}
+const Child = ({ color = 'green' }) => {
   return (
-    <div className="component">
+    <div className={`component ${color}`}>
       <h3>Hello Component</h3>
     </div>
   );
