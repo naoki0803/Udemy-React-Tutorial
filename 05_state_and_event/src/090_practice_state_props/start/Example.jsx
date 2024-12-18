@@ -1,24 +1,37 @@
+import { useState } from 'react';
 
 const Example = () => {
+  const [count, setCount] = useState(0);
   return (
     <>
       <h3>練習問題</h3>
-      <p>カウントの更新（CountUpdate）と表示（CountResult）を別のコンポーネントに分離してください。Exampleコンポーネント内で現在のカウントの値を管理するstateを一つ定義してこれまでのレクチャーで実装したようなカウンターを作成してください。</p>
-      {/* このコメントアウトを外して利用！
-        <CountResult title="カウント" />
-        <CountUpdate /> 
-      */}
+
+      <p>
+        カウントの更新（CountUpdate）と表示（CountResult）を別のコンポーネントに分離してください。
+        Exampleコンポーネント内で現在のカウントの値を管理するstateを
+        一つ定義してこれまでのレクチャーで実装したようなカウンターを作成してください。
+      </p>
+      <CountResult title="カウント" count={count} />
+      <CountUpdate setCount={setCount} />
     </>
   );
 };
-const CountResult = (/* propsを定義 */) => <h3>{/* propsのtitleとcountの値を表示 */}</h3>
 
-const CountUpdate = (/* propsを定義 */) => {
+const CountResult = ({ title, count }) => {
+  return (
+    <h3>
+      {title}: {count}
+    </h3>
+  );
+};
+
+const CountUpdate = ({ setCount }) => {
+  // const [count, setCount] = useState(0);
   const countUp = () => {
-    /* countに1追加 */
+    setCount((prevCount) => prevCount + 1);
   };
   const countDown = () => {
-    /* countから1マイナス */ 
+    setCount((prevCount) => prevCount - 1);
   };
   return (
     <>
