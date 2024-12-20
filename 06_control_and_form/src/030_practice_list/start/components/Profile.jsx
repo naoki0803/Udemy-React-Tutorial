@@ -8,7 +8,8 @@ const Profile = ({ name, age, hobbies }) => {
         <div>Hobby:</div>
         <ul>
           {hobbies.map((hobby) => (
-            <li>{hobby}</li>
+            //
+            <li key={hobby}>{hobby}</li>
           ))}
         </ul>
       </div>
