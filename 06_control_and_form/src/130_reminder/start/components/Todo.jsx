@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import TodoList from './TodoList';
 
 const Todo = () => {
-  const [todosList, setTodoList] = useState([
+  const [todoList, setTodoList] = useState([
     {
       id: 1,
       content: '店予約する',
@@ -17,26 +18,23 @@ const Todo = () => {
   ]);
 
   const complete = (id) => {
-    console.log(id);
-    todosList.filter((todo) => {
-      console.log(todo.id === id);
-    });
+    //自分で記述したコード
+    //setTodoList内で、直接filterした結果を利用しており、可読性が低い
+    // setTodoList((prevTodos) => {
+    //   return prevTodos.filter((todo) => todo.id !== id);
+    // });
 
-    // setTodoList((prev) => [...prev].shift());
+    //ENDコード
+    //filterメソッドで返される新しい配列で、setTodoListを実行する。
+    //可読性が高い
+    const newTodoList = todoList.filter((todo) => todo.id !== id);
+    console.log('🚀🚀🚀 ~ complete ~ newTodoList:', newTodoList);
+    setTodoList(newTodoList);
   };
 
   return (
     <>
-      <ul>
-        {todosList.map((todo) => {
-          return (
-            <li key={todo.id}>
-              <button onClick={() => complete(todo.content)}>完了</button>
-              {todo.content}
-            </li>
-          );
-        })}
-      </ul>
+      <TodoList todoList={todoList} complete={complete} />
     </>
   );
 };
