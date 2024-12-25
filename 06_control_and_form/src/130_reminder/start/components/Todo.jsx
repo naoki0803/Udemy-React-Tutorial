@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TodoList from './TodoList';
+import InputForm from './InputForm';
 
 const Todo = () => {
   const [todoList, setTodoList] = useState([
@@ -28,13 +29,14 @@ const Todo = () => {
     //filterメソッドで返される新しい配列で、setTodoListを実行する。
     //可読性が高い
     const newTodoList = todoList.filter((todo) => todo.id !== id);
-    console.log('🚀🚀🚀 ~ complete ~ newTodoList:', newTodoList);
+    // console.log('🚀🚀🚀 ~ complete ~ newTodoList:', newTodoList);
     setTodoList(newTodoList);
   };
 
   return (
     <>
       <TodoList todoList={todoList} complete={complete} />
+      <InputForm setTodoList={[setTodoList]} />
     </>
   );
 };

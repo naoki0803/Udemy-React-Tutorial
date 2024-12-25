@@ -1,5 +1,5 @@
 const TodoList = ({ todoList, complete }) => {
-  console.log(todoList);
+  // console.log(todoList);
   return (
     <ul>
       {todoList.map((todo) => {
