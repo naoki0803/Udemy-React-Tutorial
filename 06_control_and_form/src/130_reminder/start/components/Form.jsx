@@ -11,7 +11,8 @@ const Form = ({ setTodoList }) => {
     setEnteredValue(e.target.value);
   };
 
-  const addTodo = () => {
+  const addTodo = (e) => {
+    e.preventDefault();
     const newTodo = {
       id: Math.floor(Math.random() * 1e5),
       content: enteredValue,
@@ -21,12 +22,18 @@ const Form = ({ setTodoList }) => {
     setTodoList((prev) => {
       return [...prev, newTodo];
     });
+
+    setEnteredValue('');
   };
 
   return (
     <div>
-      <input type="text" value={enteredValue} onChange={newTodoValue} />
-      <button onClick={addTodo}>追加</button>
+      <form onSubmit={addTodo}>
+        <input type="text" value={enteredValue} onChange={newTodoValue} />
+        <button>追加</button>
+        {/*formタグで囲われていることで、デフォルトでクリックするとsubmitされる*/}
+        {/* <button onClick={addTodo}>追加</button> */}
+      </form>
     </div>
   );
 };
