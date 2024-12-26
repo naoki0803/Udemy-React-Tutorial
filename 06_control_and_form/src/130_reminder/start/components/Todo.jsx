@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TodoList from './TodoList';
-import InputForm from './InputForm';
+import Form from './Form';
 
 const Todo = () => {
   const [todoList, setTodoList] = useState([
@@ -36,7 +36,7 @@ const Todo = () => {
   return (
     <>
       <TodoList todoList={todoList} complete={complete} />
-      <InputForm setTodoList={[setTodoList]} />
+      <Form setTodoList={setTodoList} />
     </>
   );
 };
