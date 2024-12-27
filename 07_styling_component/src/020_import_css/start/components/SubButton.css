@@ -7,7 +7,7 @@
     height: 60px;
     font-weight: bold;
     cursor: pointer;
-    /* background: orange; */
+    background-color: orange;
 }
 
 .selected {
