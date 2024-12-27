@@ -3,6 +3,12 @@
  * 1. objectとしてstyleを記述する
  * 2. jsxの要素内に直接styleを記述する
  *
+ * インラインスタイルの問題点
+ * 1. コードの再利用性が悪い
+ * 2. 疑似要素 (::before, ::after, :hover, :active)など
+ * 3. メディアクエリが利用できない (@media (min-width: 600px){} )
+ * 4. 都度読み込みなのでパフォーマンスが悪い
+ * ※基本的に利用しない！！
  */
 
 import { useState } from 'react';
