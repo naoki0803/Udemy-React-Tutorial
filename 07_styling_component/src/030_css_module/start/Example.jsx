@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
+import SubButton from './components/SubButton';
+import CssModuleButton from './components/CssModuleButton';
 
-import SubButton from "./components/SubButton";
-import "./Example.css";
+import './Example.css';
 
 const Example = () => {
   const [isSelected, setIsSelected] = useState(false);
@@ -10,12 +11,16 @@ const Example = () => {
 
   return (
     <>
-      <button className={`btn ${isSelected ? "selected" : ""}`} onClick={clickHandler}>
-        ボタン
+      <button
+        className={`btn ${isSelected ? 'selected' : ''}`}
+        onClick={clickHandler}
+      >
+        外部css読み込みボタン
       </button>
       <SubButton />
-      <div style={{ textAlign: "center" }}>
-        {isSelected && "クリックされました。"}
+      <CssModuleButton clickHandler={clickHandler} isSelected={isSelected} />
+      <div style={{ textAlign: 'center' }}>
+        {isSelected && 'クリックされました。'}
       </div>
     </>
   );
