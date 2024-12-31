@@ -13,3 +13,18 @@
 .selected {
     background-color: red;
 }
+
+
+@media (max-width: 800px) {
+  .btn {
+    border-radius: 0;
+    background-color: yellow;
+  }
+}
+
+@media (max-width: 500px) {
+  .btn {
+    border-radius: 0;
+    background-color: black;
+  }
+}
