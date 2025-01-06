@@ -21,8 +21,13 @@ const ModalPortal = ({ children }) => {
 const Example = () => {
     const [modalOpen, setModalOpen] = useState(false);
     return (
-        <div className="start">
-            <div className="container start"></div>
+        <div onClick={() => console.log("親要素へのバグリング発火")}>
+            <div
+                className="container start"
+                onClick={
+                    () => console.log("マウント先の要素へのバグリング発火") // 実際には発火しない リアクト要素のツリー上でバブリングが発生する
+                }
+            ></div>
             <button
                 type="button"
                 onClick={() => setModalOpen(true)}
