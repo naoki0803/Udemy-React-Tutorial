@@ -1,9 +1,15 @@
 /** useRef とは
- * DOMを直接操作する為に利用する関数。
+ * 再レンダリングせずに、値を保持する事が可能
+ *
+ * 1. 再レンダリングされても情報が保存される。
+ * 2. refの値を変更しても再レンダリングがトリガーされない。(useStateの場合値を更新するsetStateを利用すると再レンダリングされる)
+ * 3. refオブジェクトをJSXのref属性にわたすと、そのDOMにアクセスできるようになる。(Case1の挙動)
+ * * ※ 一般的な利用用途は、3のDOMにアクセスしてDOM操作をおこなう事
  */
 
 import { useState, useRef } from "react";
 
+// useRef を使って、入力フィールドにプログラム的にフォーカスを当てる例
 const Case1 = () => {
     const [value, setValue] = useState("");
     const inputRef = useRef();
@@ -23,6 +29,7 @@ const Case1 = () => {
     );
 };
 
+// useRef を使って、ビデオの再生と停止を制御する例
 const Case2 = () => {
     const [playing, setPlaying] = useState(false);
     const inputRef = useRef();
@@ -56,6 +63,7 @@ const Case2 = () => {
     );
 };
 
+// useRef と useState の違いを示す例
 const Case3 = () => {
     const createTimeStamp = () => new Date().getTime();
     const [timeStamp, setTimeStamp] = useState(createTimeStamp());
