@@ -24,22 +24,22 @@ const Case1 = () => {
 };
 
 const Case2 = () => {
-    const [isPlay, setIsPlay] = useState(false);
+    const [playing, setPlaying] = useState(false);
     const inputRef = useRef();
 
     const style = {
         width: "100%",
     };
 
-    const handler = () => {
-        if (isPlay) {
-            // setIsPlay(false);
+    const clickHandler = () => {
+        if (playing) {
+            // setPlaying(false);
             inputRef.current.pause();
         } else {
-            // setIsPlay(true);
+            // setPlaying(true);
             inputRef.current.play();
         }
-        setIsPlay((prev) => !prev); // useStateで再生中かどうかは管理する
+        setPlaying((prev) => !prev); // useStateで再生中かどうかは管理する
     };
 
     return (
@@ -51,7 +51,7 @@ const Case2 = () => {
                 ref={inputRef}
                 style={style}
             ></video>
-            <button onClick={handler}>{isPlay ? "Stop" : "Play"}</button>
+            <button onClick={clickHandler}>{playing ? "Stop" : "Play"}</button>
         </div>
     );
 };
