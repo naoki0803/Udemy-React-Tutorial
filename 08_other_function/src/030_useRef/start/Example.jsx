@@ -24,22 +24,22 @@ const Case1 = () => {
 };
 
 const Case2 = () => {
-    const [isPlay, setIsPlay] = useState(false);
+    const [playing, setPlaying] = useState(false);
     const inputRef = useRef();
 
     const style = {
         width: "100%",
     };
 
-    const handler = () => {
-        if (isPlay) {
-            // setIsPlay(false);
+    const clickHandler = () => {
+        if (playing) {
+            // setPlaying(false);
             inputRef.current.pause();
         } else {
-            // setIsPlay(true);
+            // setPlaying(true);
             inputRef.current.play();
         }
-        setIsPlay((prev) => !prev); // useStateで再生中かどうかは管理する
+        setPlaying((prev) => !prev); // useStateで再生中かどうかは管理する
     };
 
     return (
@@ -51,7 +51,43 @@ const Case2 = () => {
                 ref={inputRef}
                 style={style}
             ></video>
-            <button onClick={handler}>{isPlay ? "Stop" : "Play"}</button>
+            <button onClick={clickHandler}>{playing ? "Stop" : "Play"}</button>
+        </div>
+    );
+};
+
+const Case3 = () => {
+    const createTimeStamp = () => new Date().getTime();
+    const [timeStamp, setTimeStamp] = useState(createTimeStamp());
+    const ref = useRef(createTimeStamp());
+
+    const updateState = () => {
+        setTimeStamp(createTimeStamp);
+    };
+
+    const updateRef = () => {
+        ref.current = createTimeStamp();
+        console.log(ref.current);
+    };
+    return (
+        <div>
+            <h3>ユースケース3</h3>
+            <p>
+                <span>state: {timeStamp}</span>
+                <button onClick={updateState}>
+                    state更新
+                    <br />
+                    再レンダリングされる
+                </button>
+            </p>
+            <p>
+                <span>state: {ref.current} </span>
+                <button onClick={updateRef}>
+                    ref更新
+                    <br />
+                    再レンダリングされない
+                </button>
+            </p>
         </div>
     );
 };
@@ -61,6 +97,7 @@ const Example = () => {
         <>
             <Case1 />
             <Case2 />
+            <Case3 />
         </>
     );
 };
