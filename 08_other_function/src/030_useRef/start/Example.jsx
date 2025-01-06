@@ -56,11 +56,48 @@ const Case2 = () => {
     );
 };
 
+const Case3 = () => {
+    const createTimeStamp = () => new Date().getTime();
+    const [timeStamp, setTimeStamp] = useState(createTimeStamp());
+    const ref = useRef(createTimeStamp());
+
+    const updateState = () => {
+        setTimeStamp(createTimeStamp);
+    };
+
+    const updateRef = () => {
+        ref.current = createTimeStamp();
+        console.log(ref.current);
+    };
+    return (
+        <div>
+            <h3>ユースケース3</h3>
+            <p>
+                <span>state: {timeStamp}</span>
+                <button onClick={updateState}>
+                    state更新
+                    <br />
+                    再レンダリングされる
+                </button>
+            </p>
+            <p>
+                <span>state: {ref.current} </span>
+                <button onClick={updateRef}>
+                    ref更新
+                    <br />
+                    再レンダリングされない
+                </button>
+            </p>
+        </div>
+    );
+};
+
 const Example = () => {
     return (
         <>
             <Case1 />
             <Case2 />
+            <Case3 />
         </>
     );
 };
