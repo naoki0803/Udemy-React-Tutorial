@@ -9,7 +9,6 @@ const Example = () => {
     // POINT オブジェクト指向型
     // 状態（データ）と処理を対で管理
     // obj.method(); -> 結果
-
     const numObj = {
         nums: [1, 2, 3],
         sum() {
