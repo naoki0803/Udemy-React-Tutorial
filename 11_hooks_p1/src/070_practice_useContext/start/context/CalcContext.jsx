@@ -1,10 +1,10 @@
 import { useReducer, createContext, useContext } from "react";
 
 const CalcContext = createContext();
-export const useCalc = () => useContext(CalcContext);
+const useCalc = () => useContext(CalcContext);
 
 const CalcDispatchContext = createContext();
-export const useDispatchCalc = () => useContext(CalcDispatchContext);
+const useDispatchCalc = () => useContext(CalcDispatchContext);
 
 const CalcProvider = ({ children }) => {
     const initState = {
@@ -12,8 +12,6 @@ const CalcProvider = ({ children }) => {
         b: 2,
         result: 3,
     };
-
-    const [state, dispatch] = useReducer(reducer, initState);
 
     const reducer = (state, { type, payload }) => {
         switch (type) {
@@ -38,20 +36,15 @@ const CalcProvider = ({ children }) => {
         }
     };
 
-    const numChangeHandler = (e) => {
-        dispatch({
-            type: "change",
-            payload: { name: e.target.name, value: e.target.value },
-        });
-    };
+    const [state, dispatch] = useReducer(reducer, initState);
 
     return (
-        <CalcContext.Provider value={useCalc}>
-            <CalcDispatchContext.Provider value={useDispatchCalc}>
+        <CalcContext.Provider value={state}>
+            <CalcDispatchContext.Provider value={dispatch}>
                 {children}
             </CalcDispatchContext.Provider>
         </CalcContext.Provider>
     );
 };
 
-export default CalcProvider;
+export { CalcProvider, useCalc, useDispatchCalc };

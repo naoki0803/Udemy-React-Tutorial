@@ -1,4 +1,9 @@
+import { useCalc, useDispatchCalc } from "../context/CalcContext";
+
 const Select = () => {
+    const state = useCalc();
+    const dispatch = useDispatchCalc();
+
     const CALC_OPTIONS = ["add", "minus", "divide", "multiply"];
 
     const calculate = (e) => {
@@ -15,3 +20,5 @@ const Select = () => {
         </select>
     );
 };
+
+export default Select;
