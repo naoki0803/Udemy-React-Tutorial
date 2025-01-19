@@ -4,7 +4,7 @@ const Form = () => {
     const [enteredTodo, setEnteredTodo] = useState("");
     const dispatch = useDispatchTodo();
 
-    const addTodo = (e) => {
+    const newHandler = (e) => {
         e.preventDefault();
 
         const newTodo = {
@@ -12,17 +12,14 @@ const Form = () => {
             content: enteredTodo,
             editing: false,
         };
-        // dispatch({ type: 'todo/add', todo: newTodo, editing: false });
-        dispatch({ type: "addTodo", todo: newTodo, editing: false });
-
-        // createTodo(newTodo);
+        dispatch({ type: "todo/new", newTodo: newTodo, editing: false });
 
         setEnteredTodo("");
     };
 
     return (
         <div>
-            <form onSubmit={addTodo}>
+            <form onSubmit={newHandler}>
                 <input
                     type="text"
                     value={enteredTodo}
