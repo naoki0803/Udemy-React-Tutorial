@@ -1,32 +1,25 @@
-import { createStore, combineReducers } from "redux";
+// modules フォルダにファイルごとの reducer を定義する事で、ファイルの整理ができる
 
-const initialState = 0;
-const reducer = (state = initialState, { type, step }) => {
-  console.log(type);
-  switch (type) {
-    case "counter/+":
-      return state + step;
-    case "counter/-":
-      return state - step;
-    default:
-      return state;
-  }
-};
-const reducer2 = (state = initialState, { type, step }) => {
-  console.log(type);
-  switch (type) {
-    case "counter2/+":
-      return state + step;
-    case "counter2/-":
-      return state - step;
-    default:
-      return state;
-  }
-};
+import { createStore, combineReducers } from "redux";
+import { reducer } from "./modules/counter";
+
+// const initialState = 0;
+// const reducer = (state = initialState, { type, step }) => {
+//   console.log(type);
+//   switch (type) {
+//     case "counter/+":
+//       return state + step;
+//     case "counter/-":
+//       return state - step;
+//     default:
+//       return state;
+//   }
+// };
 
 const reducers = combineReducers({
-  counter: reducer,
-  counter2: reducer2,
+  counter: reducer
 });
+
+
 
 export default createStore(reducers);
