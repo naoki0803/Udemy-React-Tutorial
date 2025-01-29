@@ -6,7 +6,7 @@ const CounterButton = ({ calcType, step }) => {
 
     const clickHandler = () => {
         const action = calcType === "+" ? add(step) : minus(step);
-        console.log("🚀 ~ clickHandler ~ action:", action);
+        console.log({ action }); // {type: 'counter/+', payload: 2}
 
         dispatch(action);
         // dispatch({ type: "counter/" + calcType, payload: step });
