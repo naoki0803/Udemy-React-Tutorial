@@ -41,6 +41,24 @@ const counter = createSlice({
   },
 });
 
+
+
+/** Q: RTKを利用していますが、immerのproduce関数を記述していないのに、add()でイミュータビリティが保持されるのはなぜですか？
+ * 
+ * 
+ * A: createSlice は内部で Immer を使用しているため、add 関数内で produce 関数を明示的に記述しなくてもイミュータビリティが保持されます。
+ * Redux Toolkit (RTK) の createSlice は、reducer の中で state を直接変更するようなミュータブルな記述をしても、内部で Immer を使ってイミュータブルな更新に変換してくれます。
+ * 具体的には、createSlice は以下のような処理を行っています。
+ * reducer の実行: add や minus のような reducer 関数が実行される際、createSlice は Immer の produce 関数を使って、現在の state のコピー（draft）を作成します。
+ * 2. draft の変更: reducer 関数内では、この draft を直接変更します。例えば、state.count = state.count + payload; のように記述します。
+ * 新しい state の生成: reducer 関数の処理が完了すると、Immer は draft の変更を検知し、変更された部分だけを反映した新しい state を生成します。
+ * state の更新: createSlice は、この新しい state を Redux ストアに反映させます。
+ * この仕組みにより、reducer 内ではミュータブルなコードを記述しても、実際にはイミュータブルな更新が行われるため、Redux の原則である「state はイミュータブルであるべき」というルールが守られます。
+ * したがって、add 関数内で produce 関数を明示的に記述する必要はありません。createSlice が内部で Immer を使用しているため、ミュータブルな記述でもイミュータブルな更新が自動的に行われます。
+ * 
+ * 
+ */
+
 const { add, minus } = counter.actions;
 
 export { add, minus };

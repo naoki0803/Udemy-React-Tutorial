@@ -14,12 +14,12 @@ import { produce } from "immer";
  *
  */
 
-const state = { name: "tom", hobbis: ["tennis", "soccer"] };
+const state = { name: "tom", hobbies: ["tennis", "soccer"] };
 const newState = produce(state, (draft) => {
     draft.name = "John";
     // console.log(draft); // Proxy(Object)
 });
-
+zzz;
 console.log(state === newState); // Proxy(Object)
 
 /**
