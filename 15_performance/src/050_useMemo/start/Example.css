@@ -1,0 +1,12 @@
+p {
+    font-size: 1.2em;
+}
+.parent {
+    background-color: orange;
+    padding: 10px;
+}
+.child {
+    margin: 10px;
+    background-color: yellow;
+    padding: 10px;
+}
