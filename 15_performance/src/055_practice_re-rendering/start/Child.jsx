@@ -1,15 +1,15 @@
-import React from "react";
+import React, { memo } from "react";
 
-const Child = ({ countB, onClick }) => {
-  console.log("%cChild render", "color: red;");
+const Child = memo(({ countB, onClick }) => {
+    console.log("%cChild render", "color: red;");
 
-  return (
-    <div className="child">
-      <h2>子コンポーネント領域</h2>
-      <button onClick={onClick}>ボタンB</button>
-      <p>ボタンBクリック回数：{countB}</p>
-    </div>
-  );
-};
+    return (
+        <div className="child">
+            <h2>子コンポーネント領域</h2>
+            <button onClick={onClick}>ボタンB</button>
+            <p>ボタンBクリック回数：{countB}</p>
+        </div>
+    );
+});
 
 export default Child;
