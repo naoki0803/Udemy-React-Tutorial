@@ -7,7 +7,7 @@ const todoApi = {
         const result = await axios.get(ENDPOINT_URL);
         return result.data;
     },
-    async psst(todo) {
+    async post(todo) {
         const result = await axios.post(ENDPOINT_URL, todo);
         return result.data;
     },
@@ -15,12 +15,19 @@ const todoApi = {
         const result = await axios.delete(ENDPOINT_URL + "/" + todo.id);
         return result.data;
     },
+    async put(todo) {
+        const result = await axios.put(ENDPOINT_URL + "/" + todo.id, todo);
+        return result.data;
+    },
+    async patch(todo) {
+        const result = await axios.patch(ENDPOINT_URL + "/" + todo.id, todo);
+        return result.data;
+    },
 };
 
-todoApi.delete({ id: "7" });
-// todoApi.psst({
+// todoApi.delete({ id: 6 });
+// todoApi.patch({
 //     id: "7",
-//     content: "テストの登録",
-//     editing: false,
+//     content: "テスト",
 // });
-// export default todoApi;
+export default todoApi;

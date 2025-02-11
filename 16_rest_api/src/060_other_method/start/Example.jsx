@@ -1,5 +1,4 @@
 import Todo from "./components/Todo";
-import "./api/todo";
 
 const Example = () => {
     return (
