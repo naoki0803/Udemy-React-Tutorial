@@ -10,7 +10,9 @@ const Item = ({ todo }) => {
 
     const toggleEditMode = () => {
         const newTodo = { ...todo, editing: !todo.editing };
-        dispatch({ type: "todo/update", todo: newTodo });
+        todoApi.patch(newTodo).then((newTodo) => {
+            dispatch({ type: "todo/update", todo: newTodo });
+        });
     };
 
     const confirmContent = (e) => {
