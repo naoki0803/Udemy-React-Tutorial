@@ -1,7 +1,7 @@
 const ComponentA = () => {
-  return <h3>Loaded ComponentA!</h3>;
+    return <h3>Loaded ComponentA!</h3>;
 };
 
-console.log('loaded componentA')
+// console.log('loaded componentA')
 
 export default ComponentA;
