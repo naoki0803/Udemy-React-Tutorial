@@ -5,29 +5,29 @@ import ArticleForm from "./components/form";
 import { useEffect, useState } from "react";
 
 export default function Page() {
-  const [articles, setArticles] = useState([]);
+    const [articles, setArticles] = useState([]);
 
-  useEffect(() => {
-    const getArticles = async () => {
-      const ENDPOINT = "/api/article";
-      const result = await fetch(ENDPOINT).then((res) => res.json());
-      setArticles(result);
-    };
-    getArticles();
-  }, []);
+    useEffect(() => {
+        const getArticles = async () => {
+            const ENDPOINT = "/api/article";
+            const result = await fetch(ENDPOINT).then((res) => res.json());
+            setArticles(result);
+        };
+        getArticles();
+    }, []);
 
-  return (
-    <>
-      <h3>API Routes</h3>
-      <ArticleForm />
-
-      {articles.length === 0 ? (
-        <div>データがありません。</div>
-      ) : (
+    return (
         <>
-          <ArticleList basePath="/030_SG_fetch" list={articles} />
+            <h3>API Routes</h3>
+            <ArticleForm />
+
+            {articles.length === 0 ? (
+                <div>データがありません。</div>
+            ) : (
+                <>
+                    <ArticleList basePath="/030_SG_fetch" list={articles} />
+                </>
+            )}
         </>
-      )}
-    </>
-  );
+    );
 }

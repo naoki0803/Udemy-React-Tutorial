@@ -1,4 +1,4 @@
 function init() {
-  console.log("hello");
+    console.log("hello");
 }
 init();
