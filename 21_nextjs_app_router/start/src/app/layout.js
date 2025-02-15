@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body
                 className="body-class"
-                style={{ height: "100%", background: "blue" }}
+                style={{ height: "100%", background: "rgba(0, 157, 255, 0.5)" }}
             >
                 {children}
                 <p style={{ color: "white" }}>RootLayout 内</p>
