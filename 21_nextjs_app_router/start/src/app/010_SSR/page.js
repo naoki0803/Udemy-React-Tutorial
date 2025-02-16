@@ -1,14 +1,12 @@
-"use client";
-import { useState, useEffect } from "react";
+// "use client"; // ClientCompでレンダリングする部分だけコンポネント化する事で、初回読み込みが最適化される
+
+import "./lib";
+import ClientComp from "./components/ClientComp";
+
 // export default SSR = () => {
 //     return <div> SSR Page</div>;
 // };
 export default function SSR() {
-    const [state, setState] = useState(undefined);
-    useEffect(() => {
-        setState("client loaded");
-    }, []);
-
     return (
         <div>
             <h1>http://localhost:4020/010_SSR のページ</h1>
@@ -30,7 +28,7 @@ export default function SSR() {
                 </ul>
                 <div style={{ background: "white", color: "black" }}>
                     <h2>use client で読み込んだ領域</h2>
-                    <span style={{ color: "red" }}>{state}</span>
+                    <ClientComp />
                 </div>
             </div>
         </div>
