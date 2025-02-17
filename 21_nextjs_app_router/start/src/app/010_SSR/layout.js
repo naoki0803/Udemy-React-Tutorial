@@ -2,9 +2,9 @@ export default function SubLayout({ children }) {
     return (
         <div
             style={{
-                background: "rgba(255, 60, 0)",
-                color: "white",
-                padding: "3px",
+                background: "#f0f3bd",
+                color: "#05668d",
+                padding: "15px",
             }}
         >
             {children}

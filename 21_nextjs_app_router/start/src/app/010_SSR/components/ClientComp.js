@@ -6,7 +6,7 @@ const ClientComp = () => {
         setState("client loaded");
     }, []);
 
-    return <span style={{ color: "red" }}>{state}</span>;
+    return <span style={{ color: "red", padding: "15px" }}>{state}</span>;
 };
 
 export default ClientComp;
