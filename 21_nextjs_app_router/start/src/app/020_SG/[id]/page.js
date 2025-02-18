@@ -1,14 +1,15 @@
 /** SG の利用方法
  *
  * 1. generateStaticParams を定義し export する
- * 2. 処理内の return に生成したいページの id を配列内にオブジェクト形式で渡す。
+ * 2. generateStaticParams の戻り値に生成したいページの id を配列内にオブジェクト形式で渡す事で、
+ *    静的なhtmlを作成する際の params を定義する
  *      [{ id: "1" }, { id: "2" }]
  * 3. next.config.mjs の設定に以下のプロパティを追加する
         const nextConfig = {
             output: "export",       // 静的なHTMLを出力する設定
             trailingSlash: true,    // path の末尾に / を付加する設定
         };
- * 
+ *  4. SGとして
  */
 
 import { paths } from "../paths";
