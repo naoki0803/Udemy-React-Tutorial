@@ -1,6 +1,17 @@
 import { ENDPOINT } from "@/constants";
 import Article from "../../../components/article";
 
+/**動的な metadata の作成方法 */
+export async function generateMetadata({ params }) {
+    const article = await fetch(`${ENDPOINT}/${params.id}`).then((res) =>
+        res.json()
+    );
+    return {
+        title: article.title,
+        description: article.text,
+    };
+}
+
 /** dynamic routing に必要なidの情報を取得する流れ
  * 1. fetch で API にリクエストを投げる
  * 2. then でつなげ、1.で取得した res を res.json() で json に変換する
