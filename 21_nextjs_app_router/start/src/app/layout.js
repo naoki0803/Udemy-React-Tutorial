@@ -8,6 +8,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body
+                suppressHydrationWarning
                 className="body-class"
                 style={{
                     height: "100%",
