@@ -18,4 +18,9 @@ export async function GET() {
     return Response.json(data);
 }
 
-export async function POST(request) {}
+export async function POST(request) {
+    console.log("🚀 ~ POST ~ request:", request);
+
+    // const data = await fetch(ENDPOINT, { formData }).then((res) => res.json());
+    // return Response.json(data);
+}

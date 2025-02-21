@@ -8,7 +8,10 @@ export default function ArticleForm() {
     const onSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
+        console.log("🚀 ~ onSubmit ~ form:", form);
+
         const formData = new FormData(form);
+        console.log("🚀 ~ onSubmit ~ formData:", formData);
 
         fetch("/api/article", { method: form.method, body: formData })
             .then((res) => {
