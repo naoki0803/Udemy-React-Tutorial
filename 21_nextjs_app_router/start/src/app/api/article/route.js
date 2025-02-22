@@ -13,13 +13,39 @@ import { ENDPOINT } from "@/constants";
 
 export async function GET() {
     const data = await fetch(ENDPOINT).then((res) => res.json());
-    console.log("🚀 ~ GET ~ data:", data);
+    // console.log("🚀 ~ GET ~ data:", data);
 
     return Response.json(data);
 }
 
 export async function POST(request) {
-    console.log("🚀 ~ POST ~ request:", request);
+    const formData = await request.formData();
+    const id = formData.get("id");
+    const title = formData.get("title");
+
+    if (id === "" || title === "") {
+        return Response.json(
+            { msg: "入力フィールドが空です。" },
+            { status: 500 }
+        );
+    }
+
+    try {
+        const res = await fetch(ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id, title }),
+        });
+        console.log("🚀 ~ POST ~ res:", res);
+
+        const data = await res.json();
+        console.log("🚀 ~ POST ~ data:", data);
+        return Response.json(data);
+    } catch {
+        return Response.json({ msg: "登録に失敗しました。" }, { status: 500 });
+    }
 
     // const data = await fetch(ENDPOINT, { formData }).then((res) => res.json());
     // return Response.json(data);

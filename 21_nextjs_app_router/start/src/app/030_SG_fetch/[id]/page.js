@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Detail({ params }) {
-    console.log("🚀 ~ Detail ~ params:", params);
+    // console.log("🚀 ~ Detail ~ params:", params);
 
     const article = await fetch(`${ENDPOINT}/${params.id}`).then((res) =>
         res.json()
