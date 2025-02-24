@@ -8,7 +8,7 @@ export default function ArticleForm() {
     const [newTitle, setNewTitle] = useState();
 
     return (
-        <form>
+        <form action={createItem}>
             <div>
                 <label>
                     {" "}
