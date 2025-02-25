@@ -13,7 +13,11 @@
  *  */
 import { ENDPOINT } from "@/constants";
 
-export async function createItem(formData) {
+// useFormState を 利用しない場合 serverAction が 自動的にformData を渡してくれる
+// export async function createItem(formData) {
+
+// useFormAction の更新関数から実行した場合、 serverAction の引数は 1: state 2: formData となる
+export async function createItem(state, formData) {
     const id = formData.get("id");
     const title = formData.get("title");
 
@@ -22,9 +26,8 @@ export async function createItem(formData) {
         //     { msg: "入力フィールドが空です。" },
         //     { status: 500 }
         // );
-        return { msg: "入力フィールドが空です。" }, { status: 500 };
+        return { msg: "入力フィールドが空です。", status: 500 };
     }
-
     try {
         const res = await fetch(ENDPOINT, {
             method: "POST",
@@ -33,9 +36,9 @@ export async function createItem(formData) {
         });
         const data = await res.json();
         // return Response.json(data);
-        return data;
+        return { msg: `${data.id}: ${data.title}を登録しました。` };
     } catch {
         // return Response.json({ mes: "登録に失敗しました。" }, { status: 500 });
-        return { mes: "登録に失敗しました。" }, { status: 500 };
+        return { msg: "登録に失敗しました。", status: 500 };
     }
 }
