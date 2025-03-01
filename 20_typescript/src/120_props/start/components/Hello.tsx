@@ -1,8 +1,10 @@
+// Hello コンポーネントで利用する props の型定義
 type HelloProps = {
     text?: string;
     children: React.ReactNode;
 };
 
+// React.FCに型引数として、<HelloProps> を渡す
 const Hello: React.FC<HelloProps> = (props) => {
     return (
         <h1>
@@ -12,11 +14,15 @@ const Hello: React.FC<HelloProps> = (props) => {
 };
 
 type FnProps = {
-    fn: (text: string) => void;
+    clickHandler: (text: string) => void;
 };
 
 const Btn: React.FC<FnProps> = (props) => {
-    return <button onClick={() => props.fn("TypeScript")}>ボタン!!</button>;
+    return (
+        <button onClick={() => props.clickHandler("TypeScript")}>
+            ボタン!!
+        </button>
+    );
 };
 
 type ButtonProps = {

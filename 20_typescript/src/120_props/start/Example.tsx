@@ -1,6 +1,8 @@
 import Hello, { Btn, Button } from "./components/Hello";
 
 const Example: React.FC = () => {
+    const clickHandler = (text: string) => console.log(`Hello ${text}`);
+
     // 練習用
     return (
         <>
@@ -10,7 +12,7 @@ const Example: React.FC = () => {
 
             <Hello text="TypeScript">children</Hello>
 
-            <Btn fn={(text) => console.log(`Hello ${text}`)} />
+            <Btn clickHandler={clickHandler} />
 
             <Button text="プロップスとして渡されてきた値" />
         </>
