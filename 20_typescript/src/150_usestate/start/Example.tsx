@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TodoList from "./componets/TodoList";
-import TodoForm from "./componets/TodoForm";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 export type Todo = {
     id: number;
