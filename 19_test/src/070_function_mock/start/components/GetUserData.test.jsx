@@ -1,4 +1,4 @@
-test('ダミーテスト:削除して記載してください。', () => {});
+test("ダミーテスト:削除して記載してください。", () => {});
 // import { render, screen } from "@testing-library/react";
 // import GetUserData from "./GetUserData";
 // import { ENDPOINT_URL } from "../Example";
@@ -20,4 +20,3 @@ test('ダミーテスト:削除して記載してください。', () => {});
 //     expect(itemEls[1].textContent).toBe("Name: CodeMafia");
 //   });
 // })
-

@@ -5,5 +5,5 @@ import "./index.css";
 import lectures from "./lectures.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <App lectures={lectures} />
+    <App lectures={lectures} />
 );

@@ -1,8 +1,8 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "CodeMafia"
-    }
-  ]
+    "users": [
+        {
+            "id": 1,
+            "name": "CodeMafia"
+        }
+    ]
 }

@@ -1,7 +1,7 @@
 import Greet from "./components/Greet";
 
 const Example = () => {
-  return <Greet />;
+    return <Greet />;
 };
 
 export default Example;

@@ -2,4 +2,4 @@
 // import Message from "./Message";
 // import userEvent from "@testing-library/user-event";
 
-test('ダミーテスト:削除して記載してください。', () => {});
+test("ダミーテスト:削除して記載してください。", () => {});
