@@ -59,12 +59,38 @@ test("should have h1 tag", () => {
 ```
 
 ### getByRole
+
 タグの種類を指定して取得する
 
 #### 見出しタグ
-const h1EL = screen.getByRole('headibg'); 
+
+const h1EL = screen.getByRole('headibg');
+
 #### radio
-const radioEL = screen.getByRole('radio '); 
+
+const radioEL = screen.getByRole('radio ');
+
+## テストの準備
+
+テストは以下の 3 工程をモデルとして実装をする
+
+### Arrange（準備）
+
+テストに必要な事前準備を行う段階。
+
+-   コンポーネントのレンダリング
+-   dataFetch でデータを取得する
+-   必要なオブジェクトを作成する
+
+### Act（実行）
+
+実際にテスト対象のコードを実行する段階。
+
+-   btn を押した時に Count アップが正常に実施されたか確認
+
+### Assert（アサート、検証）
+
+実行結果が期待通りであるかを検証する段階。
 
 # React + Vite
 
